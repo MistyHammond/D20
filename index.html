@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=88, initial-scale=1.0">
+    <title>Misty's Project</title>
+</head>
+
+<style>
+      h1 {
+      color: #25161b;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 20px 0px 10px;
+      text-align: center;
+      font-size: 34px;
+      line-height: 48px;
+    }
+
+    h2 {
+        color: #25161b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        width: 25%;
+    }
+
+    p {        
+        color: #25161b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 20px auto auto 10px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 32px;
+
+    }
+
+    .ttrpglink {
+        display: block;
+        text-decoration: none;
+        margin: -10px auto 10px;
+        color: #975a5e;
+    }
+
+    .ttrpglink:hover {
+        text-decoration: underline solid;        
+        color: #25161b;
+    }
+
+    .bottom {
+        font-size: 0.7em;
+        margin: 10px;
+        font-weight: 1000;
+    }
+
+    link {        
+        color: #25161b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        border: 1px solid #453953;
+        background: #453953;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #fff;
+        font-size: 16px;
+        line-height: 22px;
+        padding: 16px 24px;
+        border-radius: 30px;
+        transition: all 200ms ease;
+        box-shadow: gray 0px 0px 8px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: white;
+        color: #453953;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        color: #453953;
+    }
+
+    .roll-number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4vw;
+        color: #25161b;
+    }
+
+    body {
+    background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/715/original/paper-g2478a4bae_1920.jpg?1662570938");
+    background-color: #ffffff;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+</style>
+
+<body>
+    <h1 class="welcome">
+        🎲 Roll D20! 🎲
+    </h1>
+
+    <div class="main">
+
+
+        <h2>
+            The simple dice rolling app for your roly poly needs.
+        </h2>
+
+        <div class="container">
+        <img 
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/045/712/original/kisspng-d20-system-dungeons-dragons-pathfinder-roleplayi-ikosaeder-5b4c9dfd3dae21.1196882515317478372527.png?1662565149"    
+            />
+            <div class="roll-number"> 20 </div>
+        </div>
+
+        <button class="roll">
+            Roll!
+        </button>
+
+        <button class="customisation">
+            Customise
+        </button>
+    </div>
+
+    <p>
+        Don't have any games to play which use a D20? Find amazing games and resources via the link below!
+
+        <br>
+
+        <strong>
+            <a 
+            href="https://itch.io/physical-games/tag-ttrpg"
+            target="blank"
+            class="ttrpglink"
+            >
+            Find Table Top Games
+            </a>
+         </strong>
+         
+    </p>
+
+    <hr>
+
+    <p class="bottom">
+        Coded by Misty Hammond
+    </p>
+    
+
+</body>
+
+<script>
+    // customising functionality
+      function updateHeading(newHeader) {
+        let header = document.querySelector(".welcome")
+        header.innerHTML = newHeader;
+      }
+
+      function clickCustomise() {
+        let firstName = prompt("What is your name?");
+            if (firstName.length === 0) {
+                alert(`No customisation for you 😞`);
+            } else {
+                updateHeading(`Hi ${firstName}! Roll that D20!`);
+            }
+      }
+
+      let customiseButton = document.querySelector(".customisation");
+      customiseButton.addEventListener("click", clickCustomise);
+
+      // rolling functionality
+      function rollButton(newRoll) {
+        let rollNumber = document.querySelector(".roll-number");
+        rollNumber.innerHTML = newRoll;
+      }
+
+      function clickRoll() {
+        let rnum = Math.floor(Math.random() * 20 +1 );
+        rollButton(`${rnum}`);
+      }
+
+      let rollNumber = document.querySelector(".roll");
+      rollNumber.addEventListener("click", clickRoll);
+
+</script>
+
+</html>
